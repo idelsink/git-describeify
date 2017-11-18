@@ -1,13 +1,14 @@
 {
   "name": "browserify-git-describe",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A Browserify tranform to require Git describe information at transform time",
   "keywords": [
     "git",
     "describe",
     "git-describe",
     "browserify",
-    "transform"
+    "transform",
+    "browserify-transform"
   ],
   "main": "index.js",
   "scripts": {
