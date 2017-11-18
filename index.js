@@ -10,7 +10,7 @@ const BrowserifyGitDescribe = Transformtools.makeRequireTransform('requireTransf
       if (_.first(args) === 'browserify-git-describe') {
         let gitInfo = {};
         try {
-          gitInfo = GitDescribe.gitDescribeSync(_.slice(args, 1));
+          gitInfo = GitDescribe.gitDescribeSync.apply(this, _.slice(args, 1));
         } catch (err) {
           console.log('Failed to retrieve git info:', err);
         }
