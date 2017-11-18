@@ -1,0 +1,33 @@
+{
+  "name": "browserify-git-describe",
+  "version": "0.0.1",
+  "description": "A Browserify tranform to require Git describe information at transform time",
+  "keywords": [
+    "git",
+    "describe",
+    "git-describe",
+    "browserify",
+    "transform"
+  ],
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idelsink/browserify-git-describe.git"
+  },
+  "author": "Ingmar Delsink",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/idelsink/browserify-git-describe.git/issues"
+  },
+  "homepage": "https://github.com/idelsink/browserify-git-describe#readme",
+  "dependencies": {
+    "browserify-transform-tools": "^1.7.0",
+    "git-describe": "^4.0.2",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "semistandard": "^11.0.0"
+  }
+}
