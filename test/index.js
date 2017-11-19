@@ -1,7 +1,7 @@
 'use strict';
 
-const browserifyGitDescribe = require('../index.js');
-const gitDescribe = require('git-describe');
+const transformToTest = require('../index.js');
+const gitDescribeSync = require('git-describe').gitDescribeSync;
 const path = require('path');
 const transformtools = require('browserify-transform-tools');
 const mocha = require('mocha');
@@ -14,22 +14,26 @@ const dummyJsFile = path.resolve(__dirname, './dummy.js');
 
 describe('Readme examples', function () {
   it('should target working directory', (done) => {
-    const gitInfo = gitDescribe.gitDescribeSync();
-    const content = `require('browserify-git-describe')`;
-    transformtools.runTransform(browserifyGitDescribe, dummyJsFile, {content: content},
+    const gitInfo = gitDescribeSync();
+    const content = `require('git-describeify')`;
+    transformtools.runTransform(transformToTest, dummyJsFile, {content: content},
         (err, transformed) => {
-          transformed = JSON.parse(transformed);
+          expect(() => {
+            transformed = JSON.parse(transformed);
+          }, 'Failed to parse the transformed content to JSON').to.not.throw();
           expect(transformed.raw).to.equal(gitInfo.raw);
           done(err);
         });
   });
 
   it('should target the directory of the calling script', (done) => {
-    const gitInfo = gitDescribe.gitDescribeSync(__dirname);
-    const content = `require('browserify-git-describe', '${__dirname}')`;
-    transformtools.runTransform(browserifyGitDescribe, dummyJsFile, {content: content},
+    const gitInfo = gitDescribeSync(__dirname);
+    const content = `require('git-describeify', '${__dirname}')`;
+    transformtools.runTransform(transformToTest, dummyJsFile, {content: content},
           (err, transformed) => {
-            transformed = JSON.parse(transformed);
+            expect(() => {
+              transformed = JSON.parse(transformed);
+            }, 'Failed to parse the transformed content to JSON').to.not.throw();
             expect(transformed.raw).to.equal(gitInfo.raw);
             done(err);
           });
@@ -37,11 +41,13 @@ describe('Readme examples', function () {
 
   it('Should accept options', (done) => {
     const ops = {customArguments: ['--abbrev=16']};
-    const gitInfo = gitDescribe.gitDescribeSync(ops);
-    const content = `require('browserify-git-describe', ${JSON.stringify(ops)})`;
-    transformtools.runTransform(browserifyGitDescribe, dummyJsFile, {content: content},
+    const gitInfo = gitDescribeSync(ops);
+    const content = `require('git-describeify', ${JSON.stringify(ops)})`;
+    transformtools.runTransform(transformToTest, dummyJsFile, {content: content},
           (err, transformed) => {
-            transformed = JSON.parse(transformed);
+            expect(() => {
+              transformed = JSON.parse(transformed);
+            }, 'Failed to parse the transformed content to JSON').to.not.throw();
             expect(transformed.raw).to.equal(gitInfo.raw);
             done(err);
           });
