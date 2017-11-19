@@ -1,16 +1,17 @@
 'use strict';
 
 const _ = require('lodash');
-const Transformtools = require('browserify-transform-tools');
-const GitDescribe = require('git-describe');
+const transformtools = require('browserify-transform-tools');
+const gitDescribeSync = require('git-describe').gitDescribeSync;
+const packageJson = require('./package.json');
 
-const BrowserifyGitDescribe = Transformtools.makeRequireTransform('requireTransform',
+module.exports = transformtools.makeRequireTransform('requireTransform',
     {evaluateArguments: true},
     (args, opts, cb) => {
-      if (_.first(args) === 'browserify-git-describe') {
+      if (_.first(args) === packageJson.name) {
         let gitInfo = {};
         try {
-          gitInfo = GitDescribe.gitDescribeSync.apply(this, _.slice(args, 1));
+          gitInfo = gitDescribeSync.apply(this, _.slice(args, 1));
         } catch (err) {
           console.log('Failed to retrieve git info:', err);
         }
@@ -19,5 +20,3 @@ const BrowserifyGitDescribe = Transformtools.makeRequireTransform('requireTransf
         return cb();
       }
     });
-
-module.exports = BrowserifyGitDescribe;
