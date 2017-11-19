@@ -1,8 +1,8 @@
 # git-describeify
 
-[![npm version](https://img.shields.io/npm/v/browserify-git-describe.svg)](https://www.npmjs.com/package/browserify-git-describe)
-[![npm license](https://img.shields.io/npm/l/browserify-git-describe.svg)](https://www.npmjs.com/package/browserify-git-describe)
-[![Build Status](https://travis-ci.org/idelsink/browserify-git-describe.svg?branch=master)](https://travis-ci.org/idelsink/browserify-git-describe)
+[![npm version](https://img.shields.io/npm/v/git-describeify.svg)](https://www.npmjs.com/package/git-describeify)
+[![npm license](https://img.shields.io/npm/l/git-describeify.svg)](https://www.npmjs.com/package/git-describeify)
+[![Build Status](https://travis-ci.org/idelsink/git-describeify.svg?branch=master)](https://travis-ci.org/idelsink/git-describeify)
 
 This [browserify](https://www.npmjs.com/package/browserify) transform calls
 [git-describe](https://www.npmjs.com/package/git-describe)
