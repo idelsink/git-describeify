@@ -1,6 +1,6 @@
 {
   "name": "git-describeify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Browserify tranform to require Git describe information at transform time",
   "keywords": [
     "git",
