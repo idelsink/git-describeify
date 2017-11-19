@@ -1,4 +1,4 @@
-# Browserify git-describe
+# git-describeify
 
 [![npm version](https://img.shields.io/npm/v/browserify-git-describe.svg)](https://www.npmjs.com/package/browserify-git-describe)
 [![npm license](https://img.shields.io/npm/l/browserify-git-describe.svg)](https://www.npmjs.com/package/browserify-git-describe)
@@ -15,7 +15,7 @@ browser served applications which have no access to the local file system.
 
 Available from npm:
 ```sh
-$ npm i --save-dev browserify-git-describe
+$ npm i git-describeify
 ```
 
 Tests are not included in the npm package —
@@ -23,8 +23,8 @@ clone the git repository to run tests.
 
 ## Usage
 
-Browserify git-describe uses the node [git-describe](https://www.npmjs.com/package/git-describe) module.
-During transform, `require('browserify-git-describe')` is replaced with the
+git-describeify uses the node [git-describe](https://www.npmjs.com/package/git-describe) module.
+During transform, `require('git-describeify')` is replaced with the
 [git-describe](https://www.npmjs.com/package/git-describe#example-output) object.  
 
 ### Browserify transform
@@ -32,7 +32,7 @@ Make sure to enable the transform in Browserify by either specifying it in the
 terminal
 
 ```sh
-$ browserify -t browserify-git-describe
+$ browserify -t git-describeify
 ```
 
 or by putting it in the `package.json`.
@@ -41,7 +41,7 @@ or by putting it in the `package.json`.
 {
   "browserify": {
     "transform": [
-      "browserify-git-describe"
+      "git-describeify"
     ]
   }
 }
@@ -50,10 +50,10 @@ or by putting it in the `package.json`.
 ### Require syntax
 ```js
 //       Require the module        the arguments passed to git-describe
-require('browserify-git-describe', argument1, argument2, argument3, ...);
+require('git-describeify', argument1, argument2, argument3, ...);
 
 // For example
-const gitInfo = require('browserify-git-describe');
+const gitInfo = require('git-describeify');
 
 // Transforms into:
 const gitInfo = {
@@ -72,20 +72,20 @@ const gitInfo = {
 
 ```js
 // Target working directory
-const gitInfo = require('browserify-git-describe');
+const gitInfo = require('git-describeify');
 
 // Target the directory of the calling script
 // Recommended when you want to target the repo your app resides in
-const gitInfo = require('browserify-git-describe', __dirname);
+const gitInfo = require('git-describeify', __dirname);
 
 // With options (see https://www.npmjs.com/package/git-describe)
-const gitInfo = require('browserify-git-describe', __dirname, {
+const gitInfo = require('git-describeify', __dirname, {
     longSemver: true,
     dirtySemver: false
 });
 
 // Another example: working directory, use 16 character commit hash abbreviation
-const gitInfo = require('browserify-git-describe', {
+const gitInfo = require('git-describeify', {
     customArguments: ['--abbrev=16']
 });
 
