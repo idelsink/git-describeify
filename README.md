@@ -49,7 +49,7 @@ or by putting it in the `package.json`.
 
 ### Require syntax
 ```js
-//       Require the module        the arguments passed to git-describe
+// Require the module      the arguments passed to git-describe
 require('git-describeify', argument1, argument2, argument3, ...);
 
 // For example
