@@ -3,6 +3,8 @@
 [![npm version](https://img.shields.io/npm/v/git-describeify.svg)](https://www.npmjs.com/package/git-describeify)
 [![npm license](https://img.shields.io/npm/l/git-describeify.svg)](https://www.npmjs.com/package/git-describeify)
 [![Build Status](https://travis-ci.org/idelsink/git-describeify.svg?branch=master)](https://travis-ci.org/idelsink/git-describeify)
+[![dependencies Status](https://david-dm.org/idelsink/git-describeify/status.svg)](https://david-dm.org/idelsink/git-describeify)
+[![devDependencies Status](https://david-dm.org/idelsink/git-describeify/dev-status.svg)](https://david-dm.org/idelsink/git-describeify?type=dev)
 
 This [browserify](https://www.npmjs.com/package/browserify) transform calls
 [git-describe](https://www.npmjs.com/package/git-describe)
